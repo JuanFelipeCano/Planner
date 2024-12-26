@@ -25,8 +25,30 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    echo "Angular Config: ${{ parameters.buildConfig }}"
     npm install -g @angular/cli
+  displayName: 'Install Angular CLI'
+
+- script: |
     npm install
+  displayName: 'Install Project Dependencies'
+
+- script: |
+    echo "Angular choosen Config: ${{ parameters.buildConfig }}"
     ng build --configuration=${{ parameters.buildConfig }}
-  displayName: 'npm install and build'
+  displayName: 'Build Project'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: 'dist/planner_app/browser'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+  displayName: 'Archive dist Folder'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+  displayName: 'Publish Artifact: drop'
