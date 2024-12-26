@@ -1,0 +1,81 @@
+@import 'styles/global';
+
+$ds-input-margin-bottom: calculateRem(28px);
+$ds-input-margin: $ds-input-margin-bottom;
+$ds-input-highlight: calc($ds-input-margin-bottom - $ds-input-padding-left-right);
+
+.form-control {
+  position: relative;
+  margin-bottom: $ds-input-margin;
+
+  &__input {
+    @include inputStyles;
+  }
+
+  &__label {
+    position: absolute;
+    pointer-events: none;
+    color: $c-ds-input-text;
+    font-size: calculateEm($font-md);
+    left: calculateRem(15px);
+    top: calculateRem(12.5px);
+    -webkit-transition: .3s ease all;
+       -moz-transition: .3s ease all;
+        -ms-transition: .3s ease all;
+         -o-transition: .3s ease all;
+            transition: .3s ease all;
+  }
+
+  &__input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px $c-ds-input-webkit-box-shadow inset;
+    -webkit-text-fill-color: $c-ds-input-text;
+  }
+
+  &__input:is(:focus) ~ label,
+  &__input:not(:placeholder-shown) ~ label {
+    background-color: $c-ds-input-label-bg;
+    top: 24%;
+    opacity: 1;
+    transform: translate3d(0, -100%, 0);
+    font-size: calculateEm($font-sm);
+    padding: calculateRem(3px);
+  }
+}
+
+.form-control-error {
+  margin-bottom: 0;
+
+  .form-control {
+    &__input,
+    &__select {
+      border-color: $c-ds-input-error;
+      color: $c-ds-input-error;
+    }
+
+    &__label {
+      color: $c-ds-input-error;
+    }
+
+    &__input:focus ~ label,
+    &__input:not(:placeholder-shown) ~ label {
+      top: 18%;
+    }
+
+    &__highlight {
+      display: block;
+      color: $c-ds-input-error;
+      margin-bottom: $ds-input-highlight;
+      margin-top: 4px;
+      height: calculateRem(16px);
+      font-size: calculateEm($font-xs);
+    }
+  }
+}
+
+.form-control__select:focus ~ label, .form-control__select:not([value='']):valid ~ label {
+  color: inherit;
+  top: 0;
+  opacity: .7;
+  font-size: calculateEm($font-sm);
+  padding: calculateRem(3px);
+}

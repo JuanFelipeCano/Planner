@@ -1,0 +1,30 @@
+@import 'styles/global';
+
+.complete-registry-container {
+  padding: calculateRem(24px);
+}
+
+.complete-registry {
+  &__header {
+    margin-top: 1rem;
+    margin-bottom: 3.5rem;
+  }
+
+  &__figure {
+    text-align: center;
+  }
+
+  &__figure img {
+    width: 65%;
+    margin-top: 4rem;
+  }
+
+  &__skip-step {
+    ::ng-deep { // ds-button
+      .ds-button-container {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "title": "Sign In for Manage",
+  "form": {
+    "email": "Email",
+    "password": "Password",
+    "forgot-password": "Forgot password",
+    "submit-button": "Sign In",
+    "create-account": "Or create an account",
+    "validation-messages": {
+      "required": "Required field",
+      "valid-email": "Enter a valid Email"
+    }
+  },
+  "errors": {
+    "general": "Unexpected error",
+    "invalid-credentials": "Invalid credentials"
+  }
+}

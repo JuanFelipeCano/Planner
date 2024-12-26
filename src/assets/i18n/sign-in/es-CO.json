@@ -1,0 +1,18 @@
+{
+  "title": "Iniciar sesión",
+  "form": {
+    "email": "Correo",
+    "password": "Contraseña",
+    "forgot-password": "Olvidé mi contraseña",
+    "submit-button": "Sign In",
+    "create-account": "O crea una cuenta",
+    "validation-messages": {
+      "required": "Campo requerido",
+      "valid-email": "Ingrese un correo válido"
+    }
+  },
+  "errors": {
+    "general": "Error inesperado",
+    "invalid-credentials": "Usuario y/o contraseña inválidos"
+  }
+}

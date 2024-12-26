@@ -1,0 +1,33 @@
+$bottom-sheet-content-padding-left-right: calculateRem(16px);
+$bottom-sheet-content-padding-top-bottom: calculateRem(16px);
+$bottom-sheet-content-padding: $bottom-sheet-content-padding-top-bottom $bottom-sheet-content-padding-left-right;
+$bottom-sheet-content-width: calc(100vw - calc($bottom-sheet-content-padding-left-right * 2));
+$bottom-sheet-content-height: auto;
+$bottom-sheet-content-max-height: 90vh;
+
+@mixin bottom-sheet-content() {
+  @include z-index-full-screen-content;
+  touch-action: none;
+  position: fixed;
+  bottom: 0;
+  height: $bottom-sheet-content-height;
+  max-height: $bottom-sheet-content-max-height;
+  width: $bottom-sheet-content-width;
+  padding: $bottom-sheet-content-padding;
+  border-radius: calculateRem(20px) calculateRem(20px) 0 0;
+  background-color: $c-bottom-sheet-notch-background;
+}
+
+@mixin bottom-sheet-notch() {
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  margin-bottom: calculateRem(12px);
+}
+
+@mixin bottom-sheet-notch-wrapper() {
+  width: calculateRem(36px);
+  height: calculateRem(5px);
+  border-radius: calculateRem(3px);
+  background-color: $c-bottom-sheet-notch-wrapper-background;
+}

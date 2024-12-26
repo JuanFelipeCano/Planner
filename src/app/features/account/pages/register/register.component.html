@@ -1,0 +1,62 @@
+<div class="register-container">
+  <app-ds-header class="register__header">
+    <app-ds-title slot="start">
+      <ng-container ngProjectAs="[h1]">{{ config.i18n.title | translate }}</ng-container>
+    </app-ds-title>
+
+    <figure class="register__figure">
+      <img src="./assets/img/sign_up.svg" alt="">
+    </figure>
+  </app-ds-header>
+
+  <div class="register__form">
+    <form [formGroup]="viewModel.form">
+      <div class="register__control">
+        <app-ds-input
+          [config]="{
+            label: config.form.email.label | translate,
+            id: config.form.email.id,
+            type: config.form.email.type,
+            control: viewModel.email,
+            errorMessages: {
+              required: config.form.email.validations.required | translate,
+              email: config.form.email.validations.validEmail | translate,
+            },
+          }"
+        />
+      </div>
+      <div class="register__control">
+        <app-ds-input
+          [config]="{
+            id: config.form.password.id,
+            label: config.form.password.label | translate,
+            type: config.form.password.type,
+            control: viewModel.password,
+            errorMessages: {
+              required: config.form.password.validations.required | translate,
+            },
+          }"
+        />
+      </div>
+      <div class="register__control">
+        <app-ds-button
+          [config]="{
+            label: config.form.button.label | translate,
+            disabled: !viewModel.form.valid,
+          }"
+          (clicked)="register()"
+        />
+      </div>
+    </form>
+    <div class="register__sign-in">
+      <app-ds-button
+        [config]="{
+          label: config.signIn.label | translate,
+          type: config.signIn.type,
+          size: config.signIn.size,
+        }"
+        (clicked)="goToSignIn()"
+      />
+    </div>
+  </div>
+</div>

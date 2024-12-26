@@ -1,0 +1,91 @@
+@import 'styles/global';
+
+.ds-button {
+  cursor: pointer;
+  display: block;
+  border: 0;
+  width: 100%;
+  margin-bottom: calculateRem(24px);
+  font-size: calculateEm($font-md);
+  height: calculateRem(45px);
+  border-radius: calculateRem(5px);
+
+  &:enabled:active:focus {
+    @include buttonEnabledActiveStyles;
+  }
+
+  &-primary {
+    color: $c-ds-button-primary-text;
+    background-color: $c-ds-button-primary-background;
+  }
+
+  &-secondary {
+    background-color: $c-ds-button-secondary-background;
+    color: $c-ds-button-secondary-text;
+    border: 1px solid $c-ds-button-secondary-border;
+  }
+
+  &-secondary:enabled:active {
+    background-color: $c-ds-button-secondary-active-background;
+    color: $c-ds-button-secondary-active-text;
+  }
+
+  &-link {
+    background-color: transparent;
+    text-decoration: underline;
+    width: auto;
+    height: auto;
+    font-weight: 600; // TODO: Agregar variables
+    border: 0;
+    padding: 0;
+    color: $c-ds-button-link-text;
+  }
+
+  &-link:enabled:active {
+    transform: translateY(calculateRem(2px));
+  }
+
+  &-small {
+    width: auto;
+    height: auto;
+    font-size: calculateEm($font-xs);
+  }
+
+  &:disabled {
+    opacity: .5;
+  }
+
+  &__label {
+    background: transparent;
+    color: inherit;
+  }
+
+  &__spinner {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    &__wrapper {
+      display: block;
+      background: inherit;
+      border: solid 2px $c-ds-button-spinner-border;
+      border-bottom-color: transparent;
+      border-right-color: transparent;
+      border-radius: 50%;
+      will-change: transform;
+      height: calculateRem(20px);
+      width: calculateRem(20px);
+      animation: spin 500ms infinite linear;
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

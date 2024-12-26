@@ -1,0 +1,13 @@
+@if (config.show) {
+  <div
+    [@slide]="animationDirection"
+    [ngClass]="toastClasses"
+    class="toast-container"
+    role="alert"
+  >
+    <div class="toast__wrapper">
+      <span class="toast__icon"></span>
+      <span class="toast__label">{{ config.message }}</span>
+    </div>
+  </div>
+}

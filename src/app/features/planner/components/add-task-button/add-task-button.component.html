@@ -1,0 +1,13 @@
+<section class="add-task-btn">
+  <button
+    type="button"
+    class="add-task-btn__button"
+    (click)="clicked.emit()"
+  >
+    <span class="add-task-btn__label visually-hidden">
+      {{ config.button.label | translate }}
+    </span>
+
+    <app-icon [name]="config.button.icon" />
+  </button>
+</section>

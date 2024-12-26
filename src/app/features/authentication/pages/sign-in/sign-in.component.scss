@@ -1,0 +1,40 @@
+@import 'styles/global';
+
+.sign-in-container {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  padding: calculateRem(24px);
+}
+
+.sign-in {
+  &__header {
+    margin-top: 1rem;
+  }
+
+  &__figure {
+    text-align: center;
+  }
+
+  &__figure img {
+    width: 65%;
+    margin-top: 4rem;
+  }
+
+  &__control_forgot-password {
+    ::ng-deep { // ds-button
+      .ds-button-container {
+        display: flex;
+        justify-content: end;
+      }
+    }
+  }
+
+  &__control_create-account {
+    ::ng-deep { // ds-button
+      .ds-button-container {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}

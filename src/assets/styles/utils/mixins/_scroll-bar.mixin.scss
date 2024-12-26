@@ -1,0 +1,24 @@
+@mixin scroll-bar() {
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #c9bfb5;
+    border-radius: 3px;
+  }
+  // /* Handle on hover */
+  // &::-webkit-scrollbar-thumb:hover {
+  //   background: #b30000;
+  // }
+
+  @supports not selector(::-webkit-scrollbar) {
+    & {
+      scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Crear cuenta",
+  "form": {
+    "name": "Nombre",
+    "lastname": "Apellido",
+    "phone": "Celular",
+    "email": "Correo",
+    "password": "Contraseña",
+    "submit-button": "Continuar",
+    "validation-messages": {
+      "required": "Campo requerido",
+      "valid-email": "Ingrese un correo válido",
+      "only-letters": "Campo inválido",
+      "only-numbers": "Campo inválido"
+    }
+  },
+  "sign-in": "O inicia sesión",
+  "errors": {
+    "general": "Error creando la cuenta",
+    "existing-user": "Este correo ya está registrado"
+  }
+}

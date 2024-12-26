@@ -1,0 +1,10 @@
+{
+  "add-task-btn": {
+    "label": "Add task"
+  },
+  "tab-bar": {
+    "home": "Home",
+    "tasks": "Tasks",
+    "profile": "Profile"
+  }
+}

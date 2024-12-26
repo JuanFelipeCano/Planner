@@ -1,0 +1,64 @@
+@if (alertMessageService.isVisible() | async) {
+  <article class="alert-message" role="alertdialog">
+    <div
+      class="alert-message__overlay"
+      aria-hidden="true"
+    ></div>
+
+    <section
+      class="alert-message__content"
+      [@fadeInOut]="alertMessageService.getAnimationState() | async"
+    >
+      @if (config.icon) {
+        <aside class="alert-message__icon">
+          <app-icon
+            [name]="config.icon"
+            [class.alert-message__icon--success]="config.icon === alertMessageIcon.SUCCESS"
+            [class.alert-message__icon--info]="config.icon === alertMessageIcon.INFO"
+            [class.alert-message__icon--error]="config.icon === alertMessageIcon.ERROR"
+          />
+        </aside>
+      }
+
+      @if (config.title) {
+        <app-ds-header class="alert-message__header">
+          <app-ds-title slot="center">
+            <ng-container ngProjectAs="[h3]">{{ config.title }}</ng-container>
+          </app-ds-title>
+        </app-ds-header>
+      }
+
+      <div class="alert-message__body">
+        <p class="alert-message__message">
+          {{ config.message }}
+        </p>
+      </div>
+
+      <footer class="alert-message__footer">
+        <div class="alert-message__actions">
+          <app-ds-button
+            [config]="{
+              label: config.firstButton.text,
+              isLoading: isFirstButtonLoading,
+              disabled: (isFirstButtonLoading || isSecondButtonLoading),
+
+            }"
+            (clicked)="firstButtonAction()"
+          />
+
+          @if (config.secondButton) {
+            <app-ds-button
+              [config]="{
+                label: config.secondButton.text,
+                type: secondButtonType,
+                isLoading: isSecondButtonLoading,
+                disabled: (isFirstButtonLoading || isSecondButtonLoading),
+              }"
+              (clicked)="secondButtonAction()"
+            />
+          }
+        </div>
+      </footer>
+    </section>
+  </article>
+}

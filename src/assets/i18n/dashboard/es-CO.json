@@ -1,0 +1,10 @@
+{
+  "add-task-btn": {
+    "label": "Agregar tarea"
+  },
+  "tab-bar": {
+    "home": "Inicio",
+    "tasks": "Tareas",
+    "profile": "Perfil"
+  }
+}

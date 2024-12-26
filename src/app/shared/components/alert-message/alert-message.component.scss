@@ -1,0 +1,47 @@
+@import 'styles/global';
+
+.alert-message {
+  @include backdrop;
+
+  &__overlay {
+    @include backdrop-overlay;
+    opacity: .5;
+    background-color: $c-alert-message-overlay-bg;
+  }
+
+  &__content {
+    @include backdrop-content;
+    border-radius: calculateRem(5px);
+    margin: 1.5rem;
+    padding: 2rem 1.5rem 0 1.5rem;
+    border: 1px solid $c-alert-message-border;
+    color: $c-alert-message-text;
+    background-color: $c-alert-message-bg;
+  }
+
+  .icon-wrapper ::ng-deep ion-icon {
+    font-size: 3em;
+  }
+
+  &__icon,
+  &__body {
+    text-align: center;
+  }
+
+  &__icon--success ::ng-deep ion-icon {
+    color: $c-alert-message-icon-success;
+  }
+
+  &__icon--info ::ng-deep ion-icon {
+    color: $c-alert-message-icon-info;
+  }
+
+  &__icon--error ::ng-deep ion-icon {
+    color: $c-alert-message-icon-error;
+  }
+
+  &__body {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}

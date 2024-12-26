@@ -1,0 +1,16 @@
+<div
+  class="ds-title"
+  [style.text-align]="slot"
+>
+  <h1>
+    <ng-content select="[h1]"></ng-content>
+  </h1>
+
+  <h2>
+    <ng-content select="[h2]"></ng-content>
+  </h2>
+
+  <h3>
+    <ng-content select="[h3]"></ng-content>
+  </h3>
+</div>

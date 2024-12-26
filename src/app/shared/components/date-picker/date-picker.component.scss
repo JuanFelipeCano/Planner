@@ -1,0 +1,142 @@
+@import 'styles/global';
+
+$ds-input-padding-top-bottom: 0;
+$ds-input-padding-left-right: calculateRem(16px);
+$ds-input-padding: $ds-input-padding-top-bottom $ds-input-padding-left-right;
+$ds-input-margin-bottom: calculateRem(28px);
+$ds-input-margin: $ds-input-margin-bottom;
+$ds-input-width: calc(100% - calc($ds-input-padding-left-right * 2));
+$ds-input-highlight: calc($ds-input-margin-bottom - $ds-input-padding-left-right);
+
+@mixin cursorPointer() {
+  cursor: pointer;
+}
+
+.date-picker {
+  position: relative;
+  margin-bottom: $ds-input-margin;
+
+  .icon-wrapper ::ng-deep ion-icon {
+    color: $c-date-picker-icon;
+  }
+
+  &__input {
+    outline: none;
+    color: $c-ds-input-text;
+    width: $ds-input-width;
+    padding: $ds-input-padding;
+    font-size: calculateEm($font-md);
+    height: calculateRem(45px);
+    border: calculateRem(1px) solid $c-ds-input-border;
+    border-radius: calculateRem(5px);
+  }
+
+  &__content {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: $c-date-picker-content;
+    box-shadow: 6px 6px 12px $c-date-picker-content-box-shadow;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+  }
+
+  &__month-year {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__month-year-label {
+    font-weight: 600;
+  }
+
+  &__btn-icon {
+    @include cursorPointer;
+    border: 0;
+    padding: 0;
+  }
+
+  &__btn-icon-back,
+  &__btn-icon-next {
+    .icon-wrapper ::ng-deep ion-icon {
+      font-size: calculateEm($font-xlg);
+    }
+  }
+
+  &__day-label {
+    padding: 6px;
+    font-weight: 500;
+    color: $c-date-picker-day-text;
+  }
+
+  &__days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-top: 12px;
+  }
+
+  &__months {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 18px
+  }
+
+  &__day,
+  &__month {
+    @include cursorPointer;
+    text-align: center;
+    padding: 6px;
+    border-radius: 5px;
+  }
+
+  &__month {
+    padding: 12px 24px;
+  }
+
+  &__day:hover,
+  &__month:hover {
+    background-color: $c-date-picker-selected-background;
+    color: $c-text-secondary;
+  }
+}
+
+.disabled-day {
+  opacity: .5;
+
+  &:hover {
+    background-color: initial;
+    color: $c-text-primary;
+    cursor: initial;
+  }
+}
+
+.current-day,
+.selected-month {
+  font-weight: 600;
+}
+
+.selected-day,
+.selected-month {
+  background-color: $c-date-picker-selected-background;
+  color: $c-text-secondary;
+}
+
+.overlay {
+  @include backdrop-overlay;
+  background-color: transparent;
+  z-index: 0;
+}
+
+// div,
+// button,
+// span,
+// ion-icon {
+//   background-color: transparent;
+// }

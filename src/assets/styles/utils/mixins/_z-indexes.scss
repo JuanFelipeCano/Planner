@@ -1,0 +1,39 @@
+// Index definition
+$z-index-1: 1;
+$z-index-2: 2;
+$z-index-3: 3;
+$z-index-4: 4;
+$z-index-5: 5;
+$z-index-6: 6;
+$z-index-7: 7;
+$z-index-8: 8;
+$z-index-9: 9;
+$z-index-10: 10;
+
+@mixin set-z-index($z-index: $z-index-1) {
+  z-index: $z-index-1;
+}
+
+@mixin z-index-backdrop($z-index: $z-index-2) {
+  @include set-z-index($z-index);
+}
+
+@mixin z-index-backdrop-overlay($z-index: $z-index-3) {
+  @include set-z-index($z-index);
+}
+
+@mixin z-index-backdrop-content($z-index: $z-index-4) {
+  @include set-z-index($z-index);
+}
+
+@mixin z-index-full-screen-content($z-index: $z-index-4) {
+  @include set-z-index($z-index);
+}
+
+@mixin z-index-toast($z-index: $z-index-5) {
+  @include set-z-index($z-index);
+}
+
+@mixin z-index-loader($z-index: $z-index-10) {
+  @include set-z-index($z-index);
+}

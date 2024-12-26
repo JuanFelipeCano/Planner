@@ -1,0 +1,23 @@
+// Themes
+@import 'vars/theme.vars';
+
+// Colors
+@import 'vars/colors.vars';
+
+* {
+  // background-color: $c-bg-body;
+  color: $c-text-primary;
+}
+
+body {
+  background-color: $c-bg-body;
+  // color: $c-text-primary;
+}
+
+// div,
+// button,
+// span,
+// ion-icon {
+//   background-color: transparent;
+// }
+

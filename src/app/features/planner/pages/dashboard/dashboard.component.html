@@ -1,0 +1,16 @@
+<section class="dashboard">
+  <section class="dashboard__router-outlet">
+    <router-outlet />
+  </section>
+
+  <div class="dashboard__bottom-space"></div>
+
+  <section class="dashboard__bottom-toolbar">
+    <div class="dashboard__tab-bar">
+      <app-tab-bar (clicked)="redirectTo($event)" />
+    </div>
+    <div class="dashboard__add-task-btn">
+      <app-add-task-button (clicked)="openCreateTask()"/>
+    </div>
+  </section>
+</section>

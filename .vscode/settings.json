@@ -1,0 +1,9 @@
+{
+  "svg.preview.background": "editor",
+  "appService.zipIgnorePattern": [
+    "node_modules{,/**}",
+    ".vscode{,/**}"
+  ],
+  "appService.defaultWebAppToDeploy": "/subscriptions/6c9823c8-97b5-4f46-80e5-bda90c93d349/resourceGroups/course-release-rg/providers/Microsoft.Web/sites/jf-course-az",
+  "appService.showBuildDuringDeployPrompt": false
+}

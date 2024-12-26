@@ -1,0 +1,11 @@
+$parentSize: 16px;
+
+@function calculateRem($size) {
+  $remSize: calc($size / $parentSize);
+  @return #{$remSize}rem;
+}
+
+@function calculateEm($size, $currentSize: 16px) {
+  $emSize: calc($size / $currentSize);
+  @return #{$emSize}em;
+}

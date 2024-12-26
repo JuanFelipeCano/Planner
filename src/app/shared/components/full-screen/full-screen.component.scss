@@ -1,0 +1,33 @@
+@import 'styles/global';
+
+$full-screen-content-padding-left-right: calculateRem(16px);
+$full-screen-content-padding-top-bottom: calculateRem(12px);
+$full-screen-content-padding: $full-screen-content-padding-top-bottom $full-screen-content-padding-left-right;
+$full-screen-content-width: calc(100vw - calc($full-screen-content-padding-left-right * 2));
+
+.full-screen {
+  @include backdrop;
+
+  &__overlay {
+    @include backdrop-overlay;
+  }
+
+  &__content {
+    @include bottom-sheet-content;
+  }
+
+  &__notch {
+    @include bottom-sheet-notch;
+
+    &__wrapper {
+      @include bottom-sheet-notch-wrapper;
+    }
+  }
+
+  &__content-inner {
+    @include scroll-bar;
+    overflow-y: auto;
+    height: $bottom-sheet-content-height;
+    max-height: calc($bottom-sheet-content-max-height - 1rem);
+  }
+}

@@ -1,0 +1,24 @@
+@import 'styles/global';
+
+.add-task-btn {
+  width: fit-content;
+  background-color: transparent;
+
+  &__button {
+    border: 0;
+    width: calculateRem(58px);
+    height: calculateRem(58px);
+    border-radius: calculateRem(10px);
+    background-color: $c-add-task-btn-background;
+  }
+
+  &__button:enabled:active:focus {
+    @include buttonEnabledActiveStyles;
+  }
+
+  .icon-wrapper ::ng-deep ion-icon {
+    font-weight: bold;
+    color: $c-add-task-btn-icon;
+    font-size: calculateEm(40px);
+  }
+}

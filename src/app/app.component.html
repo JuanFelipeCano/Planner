@@ -1,0 +1,14 @@
+<div class="app-container">
+  <section [@slideInOut]="getRouteAnimationData()">
+    <router-outlet />
+  </section>
+
+  <section class="app-container__fullscreen">
+    <ng-container #fullScreenRef></ng-container>
+  </section>
+
+  <app-loader />
+  <app-toast />
+  <app-alert-message />
+  <app-alert />
+</div>

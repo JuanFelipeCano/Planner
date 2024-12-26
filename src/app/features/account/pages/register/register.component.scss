@@ -1,0 +1,32 @@
+@import 'styles/global';
+
+.register-container {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  gap: calculateRem(30px);
+  padding: calculateRem(24px);
+}
+
+.register {
+  &__header {
+    margin-top: 1rem;
+  }
+
+  &__figure {
+    text-align: center;
+  }
+
+  &__figure img {
+    width: 65%;
+    margin-top: 4rem;
+  }
+
+  &__sign-in {
+    ::ng-deep { // ds-button
+      .ds-button-container {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<div class="form-control">
+  <input
+    class="form-control__input"
+    placeholder=""
+    [attr.aria-required]="!!config.errorMessages?.['required']"
+    [id]="config.id"
+    [name]="config.label"
+    [type]="config.type"
+    [formControl]="config.control"
+    [appErrorMessage]="{
+      control: config.control,
+      errorMessages: config.errorMessages,
+    }"
+  />
+  <label [for]="config.id" class="form-control__label">{{ config.label }}</label>
+</div>

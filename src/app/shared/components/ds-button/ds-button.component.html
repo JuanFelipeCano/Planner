@@ -1,0 +1,25 @@
+@if (buttonClasses.length > 0) {
+  <div class="ds-button-container">
+    <button
+      type="button"
+      class="ds-button"
+      [ngClass]="buttonClasses"
+      [disabled]="config.disabled"
+      (click)="onClick()"
+    >
+      <span class="ds-button__label" [class.visually-hidden]="config.isLoading">
+        {{ config.label }}
+      </span>
+
+      @if (config.isLoading) {
+        <ng-container [ngTemplateOutlet]="Spinner"></ng-container>
+      }
+    </button>
+  </div>
+}
+
+<ng-template #Spinner>
+  <div class="ds-button__spinner">
+    <span class="ds-button__spinner__wrapper"></span>
+  </div>
+</ng-template>

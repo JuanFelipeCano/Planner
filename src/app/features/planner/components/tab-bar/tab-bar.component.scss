@@ -1,0 +1,61 @@
+@import 'styles/global';
+
+$tab-bar-list-gap: calculateRem(10px);
+$tab-bar-padding-top-bottom: calculateRem(6px);
+$tab-bar-padding-left-right: calculateRem(8px);
+$tab-bar-item-padding: calculateRem(5px) 0;
+$tab-bar-item-border-radius: calculateRem(5px);
+$tab-bar-border-radius: calc($tab-bar-padding-left-right + $tab-bar-item-border-radius - 2px);
+
+.tab-bar {
+  padding: $tab-bar-padding-top-bottom $tab-bar-padding-left-right;
+  border-radius: $tab-bar-border-radius;
+  background-color: $c-tab-bar-background;
+  max-height: calculateRem(60px);
+  box-shadow: rgba(0, 0, 0, .1) 0px 10px 15px -3px, rgba(0, 0, 0, .05) 0px 4px 6px -2px;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    gap: $tab-bar-list-gap;
+  }
+
+  &__icon,
+  .icon-wrapper ::ng-deep ion-icon {
+    font-size: calculateEm(18px);
+    background-color: inherit;
+  }
+
+  &__label {
+    background-color: inherit;
+    font-size: $font-xs;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    width: 100%;
+    border: 0;
+    padding: $tab-bar-item-padding;
+    border-radius: $tab-bar-item-border-radius;
+
+    &-active {
+      background-color: $c-tab-bar-active-item-background;
+
+      .icon-wrapper ::ng-deep ion-icon {
+        color: $c-tab-bar-active-icon;
+      }
+
+      .tab-bar__label {
+        font-weight: bold;
+        color: $c-tab-bar-active-text;
+        transition: font-weight .3s ease-in;
+      }
+    }
+  }
+
+
+}

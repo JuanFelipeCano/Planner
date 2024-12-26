@@ -1,0 +1,28 @@
+@import 'styles/global';
+
+.dashboard {
+  padding: calculateRem(16px) calculateRem(16px) calculateRem(80px);
+
+  &__bottom-space {
+    position: fixed;
+    background-color: inherit;
+    bottom: 0;
+    width: calc(100vw - 32px);
+    height: calculateRem(70px);
+  }
+
+  &__bottom-toolbar {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: calculateRem(5px) calculateRem(10px);
+    gap: calculateRem(10px);
+    bottom: calculateRem(10px);
+  }
+
+  &__tab-bar {
+    width: 100%;
+  }
+}

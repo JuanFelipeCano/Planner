@@ -1,0 +1,23 @@
+{
+  "title": "Complete Registry",
+  "form": {
+    "name": "Name",
+    "lastname": "Lastname",
+    "phone": "Phone",
+    "submit-button": "Complete",
+    "validation-messages": {
+      "only-letters": "Invalid field",
+      "only-numbers": "Invalid field"
+    }
+  },
+  "skip-step": "Skip step and continue",
+  "errors": {
+    "general": "Error creating account"
+  },
+  "on-cancel-registry-alert": {
+    "title": "Are you sure to leave?",
+    "message": "If you leave, your account registry will be cancelled.",
+    "accept-button": "Complete registry",
+    "cancel-button": "Leave anyway"
+  }
+}

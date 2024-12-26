@@ -1,0 +1,121 @@
+// Gray scale
+$c-gray0: var(--c-gray0);
+$c-gray5: var(--c-gray5);
+$c-gray10: var(--c-gray10);
+$c-gray15: var(--c-gray15);
+$c-gray20: var(--c-gray20);
+$c-gray25: var(--c-gray25);
+$c-gray30: var(--c-gray30);
+$c-gray35: var(--c-gray35);
+$c-gray40: var(--c-gray40);
+$c-gray45: var(--c-gray45);
+$c-gray50: var(--c-gray50);
+$c-gray55: var(--c-gray55);
+$c-gray60: var(--c-gray60);
+$c-gray65: var(--c-gray65);
+$c-gray70: var(--c-gray70);
+$c-gray75: var(--c-gray75);
+$c-gray80: var(--c-gray80);
+$c-gray85: var(--c-gray85);
+$c-gray90: var(--c-gray90);
+$c-gray93: var(--c-gray93);
+$c-gray95: var(--c-gray95);
+$c-gray100: var(--c-gray100);
+
+// Primary colors
+$c-app-primary: var(--c-app-primary);
+$c-app-secondary: var(--c-app-secondary);
+$c-error-primary: var(--c-error-primary);
+$c-transparent: var(--c-transparent);
+
+$c-primary: var(--c-primary);
+$c-secondary: var(--c-secondary);
+$c-tertiary: var(--c-tertiary);
+$c-light: var(--c-light);
+$c-dark: var(--c-dark);
+
+// Texts
+$c-text-primary: var(--c-text-primary);
+$c-text-secondary: var(--c-text-secondary);
+
+// Backgrounds
+$c-bg-body: var(--c-bg-body);
+$c-backdrop: var(--c-backdrop);
+
+// Custom components
+
+// ds-input
+$c-ds-input-error: var(--c-ds-input-error);
+$c-ds-input-text: var(--c-ds-input-text);
+$c-ds-input-border: var(--c-ds-input-border);
+$c-ds-input-label-bg: var(--c-ds-input-label-bg);
+$c-ds-input-webkit-box-shadow: var(--c-ds-input-webkit-box-shadow);
+
+// ds-button
+// ds-button primary
+$c-ds-button-primary-background: var(--c-ds-button-primary-background);
+$c-ds-button-primary-text: var(--c-ds-button-primary-text);
+// ds-button secondary
+$c-ds-button-secondary-background: var(--c-ds-button-secondary-background);
+$c-ds-button-secondary-text: var(--c-ds-button-secondary-text);
+$c-ds-button-secondary-border: var(--c-ds-button-secondary-border);
+$c-ds-button-secondary-active-background: var(--c-ds-button-secondary-active-background);
+$c-ds-button-secondary-active-text: var(--c-ds-button-secondary-active-text);
+// ds-button link
+$c-ds-button-link-text: var(--c-ds-button-link-text);
+// ds-button spinner
+$c-ds-button-spinner-border: var(--c-ds-button-spinner-border);
+
+// toast
+$c-toast-text: var(--c-toast-text);
+$c-toast-icon: var(--c-toast-icon);
+// toast success
+$c-toast-sucess-background: var(--c-toast-sucess-background);
+$c-toast-sucess-border: var(--c-toast-sucess-border);
+// toast info
+$c-toast-info-background: var(--c-toast-info-background);
+$c-toast-info-border: var(--c-toast-info-border);
+// toast danger
+$c-toast-danger-background: var(--c-toast-danger-background);
+$c-toast-danger-border: var(--c-toast-danger-border);
+// toast warning
+$c-toast-warning-background: var(--c-toast-warning-background);
+$c-toast-warning-border: var(--c-toast-warning-border);
+
+// tab-bar
+$c-tab-bar-background: var(--c-tab-bar-background);
+$c-tab-bar-active-item-background: var(--c-tab-bar-active-item-background);
+$c-tab-bar-text: var(--c-tab-bar-text);
+$c-tab-bar-icon: var(--c-tab-bar-icon);
+$c-tab-bar-active-text: var(--c-tab-bar-active-text);
+$c-tab-bar-active-icon: var(--c-tab-bar-active-icon);
+
+// add-task-button
+$c-add-task-btn-background: var(--c-add-task-btn-background);
+$c-add-task-btn-icon: var(--c-add-task-btn-icon);
+
+// loader
+$c-loader-backdrop: var(--c-loader-backdrop);
+$c-loader-dot-background: var(--c-loader-dot-background);
+$c-spinner-box-shadow: var(--c-spinner-box-shadow);
+
+// bottom sheet
+$c-bottom-sheet-notch-background: var(--c-bottom-sheet-notch-background);
+$c-bottom-sheet-notch-wrapper-background: var(--c-bottom-sheet-notch-wrapper-background);
+
+// date picker
+$c-date-picker-icon: var(--c-date-picker-icon);
+$c-date-picker-content: var(--c-date-picker-content);
+$c-date-picker-content-box-shadow: var(--c-date-picker-content-box-shadow);
+$c-date-picker-day-text: var(--c-date-picker-day-text);
+$c-date-picker-hover-background: var(--c-date-picker-hover-background);
+$c-date-picker-selected-background: var(--c-date-picker-selected-background);
+
+// alert
+$c-alert-message-overlay-bg: var(--c-alert-message-overlay-bg);
+$c-alert-message-bg: var(--c-alert-message-bg);
+$c-alert-message-border: var(--c-alert-message-border);
+$c-alert-message-text: var(--c-alert-message-text);
+$c-alert-message-icon-success: var(--c-alert-message-icon-success);
+$c-alert-message-icon-info: var(--c-alert-message-icon-info);
+$c-alert-message-icon-error: var(--c-alert-message-icon-error);

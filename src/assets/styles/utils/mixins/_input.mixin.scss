@@ -1,0 +1,17 @@
+$ds-input-padding-top-bottom: 0;
+$ds-input-padding-left-right: calculateRem(16px);
+$ds-input-padding: $ds-input-padding-top-bottom $ds-input-padding-left-right;
+$ds-input-width: calc(100% - calc($ds-input-padding-left-right * 2) - 2px);
+
+@mixin inputStyles() {
+  display: block;
+  outline: none;
+  background-color: transparent;
+  color: $c-ds-input-text;
+  width: $ds-input-width;
+  padding: $ds-input-padding;
+  font-size: calculateEm($font-md);
+  height: calculateRem(45px);
+  border: calculateRem(1px) solid $c-ds-input-border;
+  border-radius: calculateRem(5px);
+}

@@ -1,0 +1,236 @@
+:root {
+  // Gray scale
+  --c-gray0: #000;
+  --c-gray5: #0d0d0d;
+  --c-gray10: #1a1a1a;
+  --c-gray15: #262626;
+  --c-gray20: #333;
+  --c-gray25: #404040;
+  --c-gray30: #4d4d4d;
+  --c-gray35: #595959;
+  --c-gray40: #666;
+  --c-gray45: #737373;
+  --c-gray50: #808080;
+  --c-gray55: #8c8c8c;
+  --c-gray60: #999;
+  --c-gray65: #a6a6a6;
+  --c-gray70: #b3b3b3;
+  --c-gray75: #bFbFbF;
+  --c-gray80: #cdcdcd;
+  --c-gray85: #fafafa;
+  --c-gray90: #e5e5e5;
+  --c-gray93: #e4e4e4;
+  --c-gray95: #f2f2f2;
+  --c-gray100: #fff;
+
+  // dark and light
+  --c-app-light: #fbfbfb;
+  --c-app-dark: #111;
+}
+
+// Themes definition
+body,
+// body.dark-theme {
+body.light-theme {
+  // Primary colors
+  --c-app-primary: var(--c-app-light);
+  --c-app-secondary: var(--c-app-dark);
+  --c-error-primary: #d14949;
+  --c-transparent: transparent;
+
+  --c-primary: #402158;
+  --c-secondary: #7d5683;
+  --c-tertiary: #c9bfb5;
+  --c-light: #e2e9ff;
+  --c-dark: #140e36;
+
+  // Texts
+  --c-text-primary: var(--c-app-secondary);
+  --c-text-secondary: var(--c-app-primary);
+
+  // Backgrounds
+  --c-bg-body: var(--c-app-primary);
+  --c-backdrop: rgba(0, 0, 0, .41);
+
+  // Custom components
+
+  // ds-input
+  --c-ds-input-error: var(--c-error-primary);
+  --c-ds-input-text: var(--c-primary);
+  --c-ds-input-border: var(--c-primary);
+  --c-ds-input-label-bg: var(--c-bg-body);
+  --c-ds-input-webkit-box-shadow: var(--c-app-primary);
+
+  // ds-button
+  // ds-button primary
+  --c-ds-button-primary-background: var(--c-primary);
+  --c-ds-button-primary-text: var(--c-text-secondary);
+  // ds-button secondary
+  --c-ds-button-secondary-background: var(--c-transparent);
+  --c-ds-button-secondary-text: var(--c-secondary);
+  --c-ds-button-secondary-border: var(--c-secondary);
+  --c-ds-button-secondary-active-background: var(--c-secondary);
+  --c-ds-button-secondary-active-text: var(--c-app-primary);
+  // ds-button link
+  --c-ds-button-link-text: var(--c-secondary);
+  // ds-button spinner
+  --c-ds-button-spinner-border: var(--c-secondary);
+
+  // toast
+  --c-toast-text: var(--c-gray5);
+  --c-toast-icon: var(--c-gray5);
+  // toast success
+  --c-toast-sucess-background: #b7f7c3;
+  --c-toast-sucess-border: var(--c-transparent);
+  // toast info
+  --c-toast-info-background: #b2e6f4;
+  --c-toast-info-border: var(--c-transparent);
+  // toast danger
+  --c-toast-danger-background: #feb7b5;
+  --c-toast-danger-border: var(--c-transparent);
+  // toast warning
+  --c-toast-warning-background: #fbe7c6;
+  --c-toast-warning-border: var(--c-transparent);
+
+  // tab-bar
+  --c-tab-bar-background: var(--c-gray95);
+  --c-tab-bar-active-item-background: var(--c-light);
+  --c-tab-bar-text: var(--c-app-secondary);
+  --c-tab-bar-icon: var(--c-app-secondary);
+  --c-tab-bar-active-text: var(--c-text-primary);
+  --c-tab-bar-active-icon: var(--c-text-primary);
+
+  // add-task-button
+  --c-add-task-btn-background: var(--c-primary);
+  --c-add-task-btn-icon: var(--c-light);
+
+  // loader
+  --c-loader-backdrop: var(--c-primary);
+  --c-loader-dot-background: var(--c-gray100);
+  --c-spinner-box-shadow: var(--c-secondary);
+
+  // bottom sheet
+  --c-bottom-sheet-notch-background: var(--c-gray95);
+  --c-bottom-sheet-notch-wrapper-background: var(--c-gray40);
+
+  // date picker
+  --c-date-picker-icon: var(--c-gray45);
+  --c-date-picker-content: var(--c-gray95);
+  --c-date-picker-content-box-shadow: rgba(0, 0, 0, 0.18);
+  --c-date-picker-day-text: var(--c-gray45);
+  --c-date-picker-hover-background: var(--c-secondary);
+  --c-date-picker-selected-background: var(--c-secondary);
+
+  // alert
+  --c-alert-message-overlay-bg: var(--c-secondary);
+  --c-alert-message-bg: var(--c-app-primary);
+  --c-alert-message-border: var(--c-gray80);
+  --c-alert-message-text: var(--c-text-primary);
+  --c-alert-message-icon-success: #b7f7c3;
+  --c-alert-message-icon-info: #b2e6f4;
+  --c-alert-message-icon-error: #feb7b5;
+}
+
+// body.light-theme {
+body.dark-theme {
+  // Primary colors
+  --c-app-primary: var(--c-app-dark);
+  --c-app-secondary: var(--c-app-light);
+  --c-error-primary: #d14949;
+  --c-transparent: transparent;
+
+  --c-primary-original: #402158;
+  --c-primary: #8053a3;
+  --c-secondary-original: #7d5683;
+  --c-secondary: #c797ce;
+  --c-tertiary: #c9bfb5;
+  --c-light: #e2e9ff;
+  --c-dark-original: #140e36;
+  --c-dark: #2d2269;
+
+  // Texts
+  --c-text-primary: var(--c-gray80);
+  --c-text-secondary: var(--c-gray80);
+
+  // Backgrounds
+  --c-bg-body: var(--c-app-primary);
+  --c-backdrop: rgba(0, 0, 0, .41);
+
+  // Custom components
+
+  // ds-input
+  --c-ds-input-error: var(--c-error-primary);
+  --c-ds-input-text: var(--c-text-primary);
+  --c-ds-input-border: var(--c-app-secondary);
+  --c-ds-input-label-bg: var(--c-bg-body);
+  --c-ds-input-webkit-box-shadow: var(--c-app-primary);
+
+  // ds-button
+  // ds-button primary
+  --c-ds-button-primary-background: var(--c-primary);
+  --c-ds-button-primary-text: var(--c-text-secondary);
+  // ds-button secondary
+  --c-ds-button-secondary-background: var(--c-transparent);
+  --c-ds-button-secondary-text: var(--c-tertiary);
+  --c-ds-button-secondary-border: var(--c-tertiary);
+  --c-ds-button-secondary-active-background: var(--c-tertiary);
+  --c-ds-button-secondary-active-text: var(--c-app-primary);
+  // ds-button link
+  --c-ds-button-link-text: var(--c-secondary);
+  // ds-button spinner
+  --c-ds-button-spinner-border: var(--c-secondary);
+
+  // toast
+  --c-toast-text: var(--c-gray5);
+  --c-toast-icon: var(--c-gray5);
+  // toast success
+  --c-toast-sucess-background: #b7f7c3;
+  --c-toast-sucess-border: var(--c-transparent);
+  // toast info
+  --c-toast-info-background: #b2e6f4;
+  --c-toast-info-border: var(--c-transparent);
+  // toast danger
+  --c-toast-danger-background: #feb7b5;
+  --c-toast-danger-border: var(--c-transparent);
+  // toast warning
+  --c-toast-warning-background: #fbe7c6;
+  --c-toast-warning-border: var(--c-transparent);
+
+  // tab-bar
+  --c-tab-bar-background: var(--c-gray10);
+  --c-tab-bar-active-item-background: var(--c-secondary);
+  --c-tab-bar-text: var(--c-text-primary);
+  --c-tab-bar-icon: var(--c-text-primary);
+  --c-tab-bar-active-text: var(--c-dark);
+  --c-tab-bar-active-icon: var(--c-dark);
+
+  // add-task-button
+  --c-add-task-btn-background: var(--c-primary);
+  --c-add-task-btn-icon: var(--c-light);
+
+  // loader
+  --c-loader-backdrop: var(--c-primary);
+  --c-loader-dot-background: var(--c-gray100);
+  --c-spinner-box-shadow: var(--c-secondary);
+
+  // bottom sheet
+  --c-bottom-sheet-notch-background: var(--c-gray25);
+  --c-bottom-sheet-notch-wrapper-background: var(--c-gray40);
+
+  // date picker
+  --c-date-picker-icon: var(--c-gray45);
+  --c-date-picker-content: var(--c-gray10);
+  --c-date-picker-content-box-shadow: initial;
+  --c-date-picker-day-text: var(--c-gray45);
+  --c-date-picker-hover-background: var(--c-secondary);
+  --c-date-picker-selected-background: var(--c-secondary);
+
+  // alert
+  --c-alert-message-overlay-bg: var(--c-secondary);
+  --c-alert-message-bg: var(--c-gray10);
+  --c-alert-message-border: var(--c-gray20);
+  --c-alert-message-text: var(--c-gray80);
+  --c-alert-message-icon-success: #b7f7c3;
+  --c-alert-message-icon-info: #b2e6f4;
+  --c-alert-message-icon-error: #feb7b5;
+}

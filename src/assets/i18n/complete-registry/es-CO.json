@@ -1,0 +1,23 @@
+{
+  "title": "Completar Registro",
+  "form": {
+    "name": "Nombre",
+    "lastname": "Apellido",
+    "phone": "Teléfono",
+    "submit-button": "Completar",
+    "validation-messages": {
+      "only-letters": "Campo inválido",
+      "only-numbers": "Campo inválido"
+    }
+  },
+  "skip-step": "Omitir y continuar",
+  "errors": {
+    "general": "Error al crear la cuenta"
+  },
+  "on-cancel-registry-alert": {
+    "title": "¿Estás seguro de salir?",
+    "message": "Si sales, el registro de tu cuenta se cancelará.",
+    "accept-button": "Completar registro",
+    "cancel-button": "Salir"
+  }
+}

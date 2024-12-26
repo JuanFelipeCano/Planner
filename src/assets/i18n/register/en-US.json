@@ -1,0 +1,22 @@
+{
+  "title": "Sign Up",
+  "form": {
+    "name": "Name",
+    "lastname": "Lastname",
+    "phone": "Phone",
+    "email": "Email",
+    "password": "Password",
+    "submit-button": "Continue",
+    "validation-messages": {
+      "required": "Required field",
+      "valid-email": "Enter a valid Email",
+      "only-letters": "Invalid field",
+      "only-numbers": "Invalid field"
+    }
+  },
+  "sign-in": "Or sign in",
+  "errors": {
+    "general": "Error creating account",
+    "existing-user": "Email is already registered"
+  }
+}

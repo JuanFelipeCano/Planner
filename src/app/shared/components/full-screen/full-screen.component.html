@@ -1,0 +1,21 @@
+<section class="full-screen">
+  <div
+    class="full-screen__overlay"
+    aria-hidden="true"
+    (click)="closeFromBackground()"
+  ></div>
+
+  <section class="full-screen__content" #bottomSheetRef>
+    <div class="full-screen__notch">
+      <span
+        class="full-screen__notch__wrapper"
+        (touchend)="onTouchEnd()"
+        (touchmove)="onTouchMove($event)"
+        (touchstart)="onTouchStart($event)"
+      ></span>
+    </div>
+    <div class="full-screen__content-inner">
+      <ng-container #contentRef></ng-container>
+    </div>
+  </section>
+</section>

@@ -1,0 +1,82 @@
+@import 'styles/global';
+
+.loader-container {
+  @include backdrop;
+  @include z-index-loader;
+
+  &:before {
+    @include backdrop-overlay;
+    content: '';
+    display: block;
+    position: fixed;
+    opacity: .1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $c-loader-backdrop;
+  }
+}
+
+.loader {
+  &__wrapper {
+    position: relative;
+  }
+
+  &__dot {
+    position: absolute;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background-color: $c-loader-dot-background;
+    animation: bounce 1.3s linear infinite;
+
+    &:nth-child(1) {
+      left: -2rem;
+    }
+
+    &:nth-child(2) {
+      animation-delay: -1s;
+      left: -.5rem;
+    }
+
+    &:nth-child(3) {
+      right: -2rem;
+      animation-delay: -.8s;
+    }
+  }
+}
+
+.spinner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  &:before {
+    content: '';
+    position: absolute;
+    border-radius: 100%;
+    height: calculateRem(50px);
+    width: calculateRem(50px);
+    box-shadow: inset -2px 0 0 0px $c-spinner-box-shadow;
+    animation: spin .5s infinite linear;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  66%,
+  100% {
+    transform: initial;
+  }
+
+  33% {
+    transform: translatey(-1rem);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

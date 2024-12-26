@@ -1,0 +1,21 @@
+<section class="create-task">
+  <app-ds-header class="sign-in__header">
+    <app-ds-title slot="start">
+      <ng-container ngProjectAs="[h2]">Create Task</ng-container>
+    </app-ds-title>
+  </app-ds-header>
+  <br><br><br><br>
+
+  <form class="create-task__form" [formGroup]="viewModel.form">
+    <div class="create-task__control">
+      <app-ds-input
+        [config]="{
+          label: config.form.title.label | translate,
+          type: config.form.title.type,
+          control: viewModel.title,
+        }"
+      />
+    </div>
+  </form>
+
+</section>

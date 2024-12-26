@@ -1,0 +1,65 @@
+@import 'styles/global';
+
+$toast-margin: calculateRem(16px);
+$toast-width: calc(100vw - calc($toast-margin * 2));
+
+.toast-container {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, .180);
+  border-radius: 4px;
+  width: $toast-width;
+  margin: $toast-margin;
+
+  &.toast-bottom-center {
+    bottom: 0;
+  }
+
+  &.toast-top-center {
+    top: 0;
+  }
+
+  &.toast-success {
+    background: $c-toast-sucess-background;
+    border-color: $c-toast-sucess-border;
+  }
+
+  &.toast-info {
+    background: $c-toast-info-background;
+    border-color: $c-toast-info-border;
+  }
+
+  &.toast-danger {
+    background: $c-toast-danger-background;
+    border-color: $c-toast-danger-border;
+  }
+
+  &.toast-warning {
+    background: $c-toast-warning-background;
+    border-color: $c-toast-warning-border;
+  }
+}
+
+.toast {
+  &__wrapper {
+    background: transparent;
+    display: flex;
+    max-width: 100%;
+    gap: calculateRem(8px);
+    padding: calculateRem(14px);
+  }
+
+  &__label {
+    display: block;
+    background: inherit;
+    text-wrap: balance;
+    color: $c-toast-text;
+  }
+
+  &__icon {
+    display: block;
+    background: inherit;
+  }
+}

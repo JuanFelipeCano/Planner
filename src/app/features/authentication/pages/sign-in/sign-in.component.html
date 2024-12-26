@@ -1,0 +1,70 @@
+<div class="sign-in-container">
+  <header class="sign-in__header">
+    <h1>{{ config.i18n.title | translate }}</h1>
+
+    <figure class="sign-in__figure">
+      <img src="./assets/img/chore_list.svg" alt="" />
+    </figure>
+  </header>
+
+  <form class="sign-in__form" [formGroup]="viewModel.form">
+    <div class="sign-in__control">
+      <app-ds-input
+        [config]="{
+          label: config.form.email.label | translator,
+          type: config.form.email.type,
+          control: viewModel.email,
+          errorMessages: {
+            required: config.form.email.validations.required | translator,
+            email: config.form.email.validations.validEmail | translator,
+          },
+        }"
+      />
+    </div>
+    <div class="sign-in__control">
+      <app-ds-input
+        [config]="{
+          id: config.form.password.id,
+          label: config.form.password.label | translate,
+          type: config.form.password.type,
+          control: viewModel.password,
+          errorMessages: {
+            required: config.form.password.validations.required | translate,
+          },
+        }"
+      />
+    </div>
+
+    <div class="sign-in__control sign-in__control_forgot-password">
+      <app-ds-button
+        [config]="{
+          label: config.form.forgotPassword.label | translate,
+          type: config.form.forgotPassword.type,
+          size: config.form.forgotPassword.size,
+        }"
+        (clicked)="goToForgotPassword()"
+      />
+    </div>
+
+    <div class="sign-in__control">
+      <app-ds-button
+        [config]="{
+          label: config.form.button.label | translate,
+          disabled: !viewModel.form.valid,
+        }"
+        (clicked)="sigIn()"
+      />
+    </div>
+
+    <div class="sign-in__control sign-in__control_create-account">
+      <app-ds-button
+        [config]="{
+          label: config.form.createAccount.label | translate,
+          type: config.form.createAccount.type,
+          size: config.form.createAccount.size,
+        }"
+        (clicked)="goToCreateAccount()"
+      />
+    </div>
+  </form>
+</div>

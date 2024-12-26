@@ -1,0 +1,75 @@
+<div class="complete-registry-container">
+  <app-ds-header class="complete-registry__header">
+    <app-ds-title slot="start">
+      <ng-container ngProjectAs="[h1]">{{ config.i18n.title | translate }}</ng-container>
+    </app-ds-title>
+
+    <figure class="complete-registry__figure">
+      <img src="./assets/img/add_information.svg" alt="">
+    </figure>
+  </app-ds-header>
+
+  <div class="complete-registry__form">
+    <form [formGroup]="viewModel.form">
+
+      <div class="complete-registry__control">
+        <app-ds-input
+          [config]="{
+            label: config.form.name.label | translate,
+            id: config.form.name.id,
+            type: config.form.name.type,
+            control: viewModel.name,
+            errorMessages: {
+              onlyLetters: config.form.name.validations.onlyLetters | translate,
+            },
+          }"
+        />
+      </div>
+      <div class="complete-registry__control">
+        <app-ds-input
+          [config]="{
+            label: config.form.lastname.label | translate,
+            id: config.form.lastname.id,
+            type: config.form.lastname.type,
+            control: viewModel.lastname,
+            errorMessages: {
+              onlyLetters: config.form.name.validations.onlyLetters | translate,
+            },
+          }"
+        />
+      </div>
+      <div class="complete-registry__control">
+        <app-ds-input
+          [config]="{
+            label: config.form.phone.label | translate,
+            id: config.form.phone.id,
+            type: config.form.phone.type,
+            control: viewModel.phone,
+            errorMessages: {
+              onlyNumbers: config.form.phone.validations.onlyNumbers | translate,
+            },
+          }"
+        />
+      </div>
+      <div class="complete-registry__control">
+        <app-ds-button
+          [config]="{
+            label: config.form.button.label | translate,
+            disabled: !viewModel.form.valid,
+          }"
+          (clicked)="complete()"
+        />
+      </div>
+    </form>
+    <div class="complete-registry__skip-step">
+      <app-ds-button
+        [config]="{
+          label: config.signIn.label | translate,
+          type: config.signIn.type,
+          size: config.signIn.size,
+        }"
+        (clicked)="complete()"
+      />
+    </div>
+  </div>
+</div>

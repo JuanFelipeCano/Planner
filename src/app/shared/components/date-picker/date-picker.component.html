@@ -1,0 +1,127 @@
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<div class="date-picker">
+  <input
+    type="text"
+    id="date-picker"
+    class="date-picker__input"
+    readonly
+    placeholder="DD/MM/YYY"
+    (click)="toggleDatePicker()"
+    [value]="selectedDate"
+  />
+  <label for="date-picker" class="visually-hidden">{{ config.labels.date }}</label>
+
+  @if (isOpen) {
+    <div
+      class="overlay"
+      aria-hidden="true"
+      (click)="closeFromBackground()"
+    ></div>
+    <section class="date-picker__content">
+      @if (areMonthsActive) {
+        <ng-container [ngTemplateOutlet]="PickerMonths"></ng-container>
+      } @else {
+        <ng-container [ngTemplateOutlet]="PickerDays"></ng-container>
+      }
+    </section>
+  }
+</div>
+
+<ng-template #PickerDays>
+  <div class="date-picker__header">
+    <button
+      type="button"
+      class="date-picker__btn-icon date-picker__btn-icon-back"
+      (click)="previousMonth()"
+    >
+      <app-icon name="chevron-back-outline" />
+      <span class="visually-hidden">{{ config.labels.backBtn }}</span>
+    </button>
+
+    <span class="date-picker__month-year">
+      <span class="date-picker__month-year-label">
+        {{ config.months[ simpleDate.month - 1 ] | slice: 0 : 3 }} {{ simpleDate.year }}
+      </span>
+      <button
+        type="button"
+        class="date-picker__btn-icon date-picker__btn-icon-months"
+        (click)="toggleMonths()"
+      >
+        <app-icon name="chevron-down-outline" />
+        <span class="visually-hidden">{{ config.labels.monthsBtn }}</span>
+      </button>
+    </span>
+
+    <button
+      type="button"
+      class="date-picker__btn-icon date-picker__btn-icon-next"
+      (click)="nextMonth()"
+    >
+      <app-icon name="chevron-forward-outline" />
+      <span class="visually-hidden">{{ config.labels.nextBtn }}</span>
+    </button>
+  </div>
+
+  <div class="date-picker__day-names">
+    @for (day of config.days; track $index) {
+      <span class="date-picker__day-label">{{ day | slice: 0 : 3 }}</span>
+    }
+  </div>
+
+  <div class="date-picker__days">
+    @for (day of daysInMonth; track $index) {
+      @if (day === 0) {
+        <span class="date-picker__empty-day"></span>
+      } @else {
+        <span
+          class="date-picker__day"
+          [class.current-day]="day === simpleDate.day && (currentDate.month() + 1) === simpleDate.month"
+          [class.selected-day]="isSelectedDay(day)"
+          [class.disabled-day]="isDisabledDay(day)"
+          (click)="selectDate(day)"
+        >
+          {{ day }}
+        </span>
+      }
+    }
+  </div>
+</ng-template>
+
+<ng-template #PickerMonths>
+  <div class="date-picker__header">
+    <button
+      type="button"
+      class="date-picker__btn-icon date-picker__btn-icon-back"
+      (click)="previousYear()"
+    >
+      <app-icon name="chevron-back-outline" />
+      <span class="visually-hidden">{{ config.labels.backBtn }}</span>
+    </button>
+
+    <span class="date-picker__month-year">
+      <span class="date-picker__month-year-label">{{ simpleDate.year }}</span>
+    </span>
+
+    <button
+      type="button"
+      class="date-picker__btn-icon date-picker__btn-icon-next"
+      (click)="nextYear()"
+    >
+      <app-icon name="chevron-forward-outline" />
+      <span class="visually-hidden">{{ config.labels.nextBtn }}</span>
+    </button>
+  </div>
+
+  <div class="date-picker__months">
+    @for (month of config.months; track $index) {
+      <span
+        class="date-picker__month"
+        [class.selected-month]="$index === (simpleDate.month - 1)"
+        (click)="selectMonth($index)"
+      >
+        {{ month | slice: 0 : 3 }}
+      </span>
+    }
+  </div>
+</ng-template>
