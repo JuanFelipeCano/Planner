@@ -18,45 +18,48 @@ parameters:
       - development
       - fake
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '20.x'
-  displayName: 'Install Node.js'
+jobs:
+  - job: Installing
+    displayName: 'Agent Job'
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '20.x'
+      displayName: 'Install Node.js'
 
-- script: |
-    npm install -g @angular/cli
-  displayName: 'Install Angular CLI'
+    - script: |
+        npm install -g @angular/cli
+      displayName: 'Install Angular CLI'
 
-- script: |
-    npm install
-  displayName: 'Install Project Dependencies'
+    - script: |
+        npm install
+      displayName: 'Install Project Dependencies'
 
-- script: |
-    echo "Unit tests"
-  # ng test --watch=false --browsers=ChromeHeadless
-  displayName: 'Run Unit Tests'
-  continueOnError: false
+    - script: |
+        echo "Unit tests"
+      # ng test --watch=false --browsers=ChromeHeadless
+      displayName: 'Run Unit Tests'
+      continueOnError: false
 
-- script: |
-    echo "Angular choosen Config: ${{ parameters.buildConfig }}"
-    ng build --configuration=${{ parameters.buildConfig }}
-  displayName: 'Build Project'
-  continueOnError: false
+    - script: |
+        echo "Angular choosen Config: ${{ parameters.buildConfig }}"
+        ng build --configuration=${{ parameters.buildConfig }}
+      displayName: 'Build Project'
+      continueOnError: false
 
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: 'dist/planner_app/browser'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
-  displayName: 'Archive dist Folder'
-  continueOnError: false
+    - task: ArchiveFiles@2
+      inputs:
+        rootFolderOrFile: 'dist/planner_app/browser'
+        includeRootFolder: true
+        archiveType: 'zip'
+        archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+        replaceExistingArchive: true
+      displayName: 'Archive dist Folder'
+      continueOnError: false
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
-  displayName: 'Publish Artifact: drop'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
+      displayName: 'Publish Artifact: drop'
