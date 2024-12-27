@@ -20,9 +20,9 @@ parameters:
 
 stages:
 
-# Stage 1: Prepare environment
-- stage: PrepareEnv
-  displayName: 'Prepare Environment'
+# Stage 1: Execute Unit Tests
+- stage: UnitTests
+  displayName: 'Prepare Unit Tests'
   jobs:
     - job: Install
       displayName: 'Install'
@@ -37,12 +37,6 @@ stages:
         - script: |
             npm install
           displayName: 'Install Project Dependencies'
-
-# Stage 2: Execute Unit Tests
-- stage: UnitTests
-  displayName: 'Prepare Unit Tests'
-  dependsOn: PrepareEnv
-  jobs:
     - job: RunUnitTests
       displayName: 'Run Unit Tests'
       steps:
@@ -52,12 +46,24 @@ stages:
           displayName: 'Run Angular Unit Tests'
           continueOnError: false
 
-# Stage 3: Build App
+# Stage 2: Build App
 - stage: BuildApp
   displayName: 'Prepare Build App'
-  dependsOn: PrepareEnv
   jobs:
-    - job: BuildProject
+    - job: Install
+      displayName: 'Install'
+      steps:
+        - task: NodeTool@0
+          inputs:
+            versionSpec: '20.x'
+          displayName: 'Install Node.js'
+        - script: |
+            npm install -g @angular/cli
+          displayName: 'Install Angular CLI'
+        - script: |
+            npm install
+          displayName: 'Install Project Dependencies'
+    - job: Build
       displayName: 'Build Project'
       steps:
         - script: |
@@ -65,13 +71,6 @@ stages:
             ng build --configuration=${{ parameters.buildConfig }}
           displayName: 'Build Project'
           continueOnError: false
-
-# Stage 4: Archive and Publish Build Artifacts
-- stage: PublishBuildArtifact
-  displayName: 'Prepare Build App'
-  dependsOn: [UnitTests, BuildApp] # Esta etapa depende de que las etapas de UnitTests y Build sean exitosas
-  condition: and(succeeded('UnitTests'), succeeded('BuildApp')) # Solo se ejecuta si ambas etapas anteriores fueron exitosas
-  jobs:
     - job: ArchiveFiles
       displayName: 'Archive Files'
       steps:
