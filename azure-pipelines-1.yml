@@ -3,91 +3,91 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
-trigger:
-- main
+#trigger:
+#- main
 
-pool:
-  vmImage: ubuntu-latest
+#pool:
+#  vmImage: ubuntu-latest
 
-parameters:
-  - name: buildConfig
-    type: string
-    default: 'development'
-    values:
-      - production
-      - development
-      - fake
+#parameters:
+#  - name: buildConfig
+#    type: string
+#    default: 'development'
+#    values:
+#      - production
+#      - development
+#      - fake
 
-stages:
+#stages:
 
 # Stage 1: Execute Unit Tests
-- stage: UnitTests
-  displayName: 'Prepare Unit Tests'
-  jobs:
-    - job: Install
-      displayName: 'Install'
-      steps:
-        - task: NodeTool@0
-          inputs:
-            versionSpec: '20.x'
-          displayName: 'Install Node.js'
-        - script: |
-            npm install -g @angular/cli
-          displayName: 'Install Angular CLI'
-        - script: |
-            npm install
-          displayName: 'Install Project Dependencies'
-    - job: RunUnitTests
-      displayName: 'Run Unit Tests'
-      steps:
-        # ng test --watch=false --browsers=ChromeHeadless
-        - script: |
-            echo "Unit tests"
-          displayName: 'Run Angular Unit Tests'
-          continueOnError: false
+#- stage: UnitTests
+#  displayName: 'Prepare Unit Tests'
+#  jobs:
+#    - job: Install
+#      displayName: 'Install'
+#      steps:
+#        - task: NodeTool@0
+#          inputs:
+#            versionSpec: '20.x'
+#          displayName: 'Install Node.js'
+#        - script: |
+#            npm install -g @angular/cli
+#          displayName: 'Install Angular CLI'
+#        - script: |
+#            npm install
+#          displayName: 'Install Project Dependencies'
+#    - job: RunUnitTests
+#      displayName: 'Run Unit Tests'
+#      steps:
+#        # ng test --watch=false --browsers=ChromeHeadless
+#        - script: |
+#            echo "Unit tests"
+#          displayName: 'Run Angular Unit Tests'
+#          continueOnError: false
 
 # Stage 2: Build App
-- stage: BuildApp
-  displayName: 'Prepare Build App'
-  jobs:
-    - job: Install
-      displayName: 'Install'
-      steps:
-        - task: NodeTool@0
-          inputs:
-            versionSpec: '20.x'
-          displayName: 'Install Node.js'
-        - script: |
-            npm install -g @angular/cli
-          displayName: 'Install Angular CLI'
-        - script: |
-            npm install
-          displayName: 'Install Project Dependencies'
-    - job: Build
-      displayName: 'Build Project'
-      steps:
-        - script: |
-            echo "Angular choosen Config: ${{ parameters.buildConfig }}"
-            ng build --configuration=${{ parameters.buildConfig }}
-          displayName: 'Build Project'
-          continueOnError: false
-    - job: ArchiveFiles
-      displayName: 'Archive Files'
-      steps:
-        - task: ArchiveFiles@2
-          inputs:
-            rootFolderOrFile: 'dist/planner_app/browser'
-            includeRootFolder: true
-            archiveType: 'zip'
-            archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-            replaceExistingArchive: true
-          displayName: 'Archive dist Folder'
-    - job: PublishBuildArtifact
-      displayName: 'PublishBuild Artifact'
-      steps:
-        - task: PublishBuildArtifacts@1
-          inputs:
-            PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-            ArtifactName: 'drop'
-            publishLocation: 'Container'
-          displayName: 'Publish Artifact: drop'
+#- stage: BuildApp
+#  displayName: 'Prepare Build App'
+#  jobs:
+#    - job: Install
+#      displayName: 'Install'
+#      steps:
+#        - task: NodeTool@0
+#          inputs:
+#            versionSpec: '20.x'
+#          displayName: 'Install Node.js'
+#        - script: |
+#            npm install -g @angular/cli
+#          displayName: 'Install Angular CLI'
+#        - script: |
+#            npm install
+#          displayName: 'Install Project Dependencies'
+#    - job: Build
+#      displayName: 'Build Project'
+#      steps:
+#        - script: |
+#            echo "Angular choosen Config: ${{ parameters.buildConfig }}"
+#            ng build --configuration=${{ parameters.buildConfig }}
+#          displayName: 'Build Project'
+#          continueOnError: false
+#    - job: ArchiveFiles
+#      displayName: 'Archive Files'
+#      steps:
+#        - task: ArchiveFiles@2
+#          inputs:
+#            rootFolderOrFile: 'dist/planner_app/browser'
+#            includeRootFolder: true
+#            archiveType: 'zip'
+#            archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+#            replaceExistingArchive: true
+#          displayName: 'Archive dist Folder'
+#    - job: PublishBuildArtifact
+#      displayName: 'PublishBuild Artifact'
+#      steps:
+#        - task: PublishBuildArtifacts@1
+#          inputs:
+#            PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+#            ArtifactName: 'drop'
+#            publishLocation: 'Container'
+#          displayName: 'Publish Artifact: drop'
