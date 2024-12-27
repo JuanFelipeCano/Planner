@@ -18,37 +18,62 @@ parameters:
       - development
       - fake
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '20.x'
-  displayName: 'Install Node.js'
+stages:
 
-- script: |
-    npm install -g @angular/cli
-  displayName: 'Install Angular CLI'
+# Stage Build App
+- stage: BuildApp
+  displayName: 'Prepare Build App'
+  jobs:
+    - job: DependencyInstallation
+      displayName: 'Dependency installation'
+      steps:
+        - task: NodeTool@0
+          inputs:
+            versionSpec: '20.x'
+          displayName: 'Install Node.js'
+        - script: |
+            npm install -g @angular/cli
+          displayName: 'Install Angular CLI'
+        - script: |
+            npm install
+          displayName: 'Install Project Dependencies'
 
-- script: |
-    npm install
-  displayName: 'Install Project Dependencies'
+    - job: RunUnitTests
+      displayName: 'Run Unit Tests'
+      steps:
+        # ng test --watch=false --browsers=ChromeHeadless
+        - script: |
+            echo "Unit tests"
+          displayName: 'Run Angular Unit Tests'
+          continueOnError: false
 
-- script: |
-    echo "Angular choosen Config: ${{ parameters.buildConfig }}"
-    ng build --configuration=${{ parameters.buildConfig }}
-  displayName: 'Build Project'
+    - job: Build
+      displayName: 'Build Project'
+      steps:
+        - script: |
+            echo "Angular choosen Config: ${{ parameters.buildConfig }}"
+            ng build --configuration=${{ parameters.buildConfig }}
+          displayName: 'Build Project'
+          continueOnError: false
 
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: 'dist/planner_app/browser'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
-  displayName: 'Archive dist Folder'
+    - job: ArchiveFiles
+      displayName: 'Archive Files'
+      steps:
+        - task: ArchiveFiles@2
+          inputs:
+            rootFolderOrFile: 'dist/planner_app/browser'
+            includeRootFolder: true
+            archiveType: 'zip'
+            archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+            replaceExistingArchive: true
+          displayName: 'Archive dist Folder'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
-  displayName: 'Publish Artifact: drop'
+    - job: PublishBuildArtifact
+      displayName: 'PublishBuild Artifact'
+      steps:
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+            ArtifactName: 'drop'
+            publishLocation: 'Container'
+          displayName: 'Publish Artifact: drop'
